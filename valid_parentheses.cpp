@@ -3,64 +3,95 @@
 // Open brackets must be closed by the same type of brackets.
 // Open brackets must be closed in the correct order.
 // Every close bracket has a corresponding open bracket of the same type.
-//g++ valid_parentheses.cpp
+// g++ valid_parentheses.cpp
 #include <iostream>
 
 using namespace std;
 
-bool MatchDotCom(string s, char current, int & pos){
-    cout << current << endl;
-    cout << pos << endl;
-    
-    pos += 1;
-    if(current == '('){
-        if(s[pos] == ')'){
-            pos += 1;
-            return true;
-        }
-        else{
-            MatchDotCom(s, s[pos], pos);
-        }
-    }else if(current == '{'){
-        if(s[pos] == '}'){
-            pos += 1;
-            return true;
-        }
-        else{
-             MatchDotCom(s, s[pos], pos);
-             cout << pos << endl;
-             cout << "does it even get here?" << endl;
-        } 
-
-    }else if(current == '['){
-        if(s[pos] == ']'){
-            pos += 1;
-            return true;
-        }
-        else{
-            MatchDotCom(s, s[pos], pos);
-        }
-    }else if(current == ')' || current == '}' || current == ']'){
+class Solution {
+public:
+    bool MatchDotCom(char current){
+        if (current == ')' || current == '}' || current == ']'){
         return false;
-    }
-
-    return true;
-}
-
-int main(){
-    bool flag = true;
-    int numberPtr = 0;
-    string string = "{()}";
-    while(flag){
-        flag = MatchDotCom(string, string[numberPtr], numberPtr);
-        if(numberPtr > string.length()){
-            cout << "This should only return" << endl;
-            break;
         }
+        
     }
-    cout << flag << endl;
-}
 
+    bool isValid(string s) {
+        
+        
+    }
+};
+//Works but not on leetcode/
+// bool MatchDotCom(string s, char current, int &pos)
+// {
+//     if (current == ')' || current == '}' || current == ']')
+//     {
+//         return false;
+//     }
+
+//     while (pos <= s.length())
+//     {
+//         cout << current << endl;
+//         cout << pos << endl;
+//         pos += 1;
+//         cout << "After adding" << pos << endl;
+//         if (current == '(')
+//         {
+//             if (s[pos] == ')')
+//             {
+//                 cout << s[pos] << endl;
+//                 return true;
+//             }
+//             else
+//             {
+//                 MatchDotCom(s, s[pos], pos);
+//             }
+//         }
+//         else if (current == '{')
+//         {
+//             if (s[pos] == '}')
+//             {
+//                 cout << s[pos] << endl;
+//                 return true;
+//             }
+//             else
+//             {
+//                 MatchDotCom(s, s[pos], pos);
+//             }
+//         }
+//         else if (current == '[')
+//         {
+//             if (s[pos] == ']')
+//             {
+//                 cout << s[pos] << endl;
+//                 return true;
+//             }
+//             else
+//             {
+//                 MatchDotCom(s, s[pos], pos);
+//             }
+//         }
+//     }
+//     return true;
+// }
+
+// int main()
+// {
+//     bool flag = true;
+//     int numberPtr = 0;
+//     string string = "{()({}}";
+//     while (flag)
+//     {
+//         flag = MatchDotCom(string, string[numberPtr], numberPtr);
+//         numberPtr += 1;
+//         if (numberPtr == string.length())
+//         {
+//             break;
+//         }
+//     }
+//     cout << flag << endl;
+// }
 
 // bool MatchDotCom(string s, char current, int pos){
 //     bool valid;
