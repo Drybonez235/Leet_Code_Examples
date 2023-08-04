@@ -9,12 +9,12 @@ public:
     int lengthOfLongestSubstring(string s) {
         int answer = 0;// 
         int temp = 0;// 
-        int control = 0;
         string buffer = "";//d
         for(int i = 0; i < s.length(); i++){ //
-            if(buffer.find_first_of(s[control]) != string::npos){ //If found
-               buffer = s[i];
-               temp = 1; 
+        int position = buffer.find_first_of(s[i]);
+            if(position!= string::npos){ //If found
+               buffer = buffer.substr(position + 1, i); // So this makes the
+               temp = buffer.length();
                if(temp > answer){
                     answer = temp;
                 }
