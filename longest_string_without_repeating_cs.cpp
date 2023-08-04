@@ -1,19 +1,21 @@
 //Given a string s, find the length of the longest substringwithout repeating characters.
 //A substring is a contiguous non-empty sequence of characters within a string.
+
+//It Worked!!!
 #include <iostream>
 #include <string>
 using namespace std;
 
-class Solution { //dvdf //d i=3
+lass Solution { //dvdf //d i=3
 public:
     int lengthOfLongestSubstring(string s) {
         int answer = 0;// 
         int temp = 0;// 
-        string buffer = "";//d
+        string buffer = "";//ab
         for(int i = 0; i < s.length(); i++){ //
-        int position = buffer.find_first_of(s[i]);
-            if(position!= string::npos){ //If found
-               buffer = buffer.substr(position + 1, i); // So this makes the
+        int position = buffer.find_first_of(s[i]); //1
+            if(position!= string::npos){ 
+               buffer = buffer.substr(position + 1, string::npos) + s[i]; //This is key so that it makes the buffer include the char it just surched for and delete the first one.
                temp = buffer.length();
                if(temp > answer){
                     answer = temp;
