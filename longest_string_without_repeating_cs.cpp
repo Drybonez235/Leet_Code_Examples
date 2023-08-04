@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-lass Solution { //dvdf //d i=3
+class Solution { //dvdf //d i=3
 public:
     int lengthOfLongestSubstring(string s) {
         int answer = 0;// 
