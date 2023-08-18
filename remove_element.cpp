@@ -16,9 +16,7 @@ public:
             if(nums[i] != val){//1
                 nums[i -(i - count)] = nums[i];
                 count += 1;
-            } else if(nums[i] == val){
-            
-            }
+            } 
         }
     return count;
      }
